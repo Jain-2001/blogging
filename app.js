@@ -23,7 +23,7 @@ const upload=multer({
 const app=express();
 
 app.use(express.static(__dirname+"/public"));
-app.use(express.static(__dirname+"/uploads"))
+app.use(express.static(__dirname))
 app.use(body_parser.urlencoded({extended:false}));
 app.set('view engine','ejs')
 app.set('views', path.join(__dirname,'views'))
