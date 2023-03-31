@@ -311,7 +311,8 @@ app.post('/register',function(req,res){
         const userid=req.params.userId;
         Blog.findById({_id:bid},function(err,docs){
             if(err){
-                console.log(err);
+                console.log("There was an error");
+                res.redirect('/create/'+id);
 
             }else{
                 res.render('edit',{id:userid,bdata:docs});
@@ -334,9 +335,9 @@ app.post('/register',function(req,res){
         }
         Blog.findByIdAndUpdate({_id:bid},blog1,function(err){
             if(err){
-                console.log(err);
+                console.log("There was an error");
+                res.redirect('/create/'+id);
             }else{
-                console.log("Data is updated");
                 res.redirect('/create/'+id);
             }
         })
@@ -352,7 +353,8 @@ app.post('/register',function(req,res){
         const userid=req.params.userId;
         Blog.findByIdAndDelete({_id:bid},function(err){
             if(err){
-                console.log(err);
+                console.log("There was an error");
+                res.redirect('/create/'+id);
             }else{
                 console.log("Data is deleted");
                 res.redirect('/create/'+userid);
@@ -374,7 +376,8 @@ app.post('/register',function(req,res){
         })
         blog1.save(function(err){
             if(err){
-                console.log(err)
+                console.log("There was an error");
+                res.redirect('/create/'+id);
             }else{
                 console.log("Data is Saved")
                 res.redirect('/test/'+id)
@@ -401,7 +404,8 @@ app.post('/register',function(req,res){
         });
         product1.save(function(err){
             if(err){
-                console.log(err);
+                alert("There was an error");
+                res.redirect('/create/'+id);
             }else{
                 res.redirect('/test2/'+product_id);
             }
@@ -480,7 +484,8 @@ app.post('/register',function(req,res){
         Blog.find({id:id},function(err,docs){
             if(err)
             {
-                console.log(err);
+                alert("There was an error");
+                res.redirect('/create/'+id);
             }else{
                 res.redirect('/create/'+id);
                 // res.render('test',{item:docs});
@@ -493,7 +498,8 @@ app.post('/register',function(req,res){
         const id=req.params.userId;
         Product.find({id:id},function(err,docs){
             if(err){
-                console.log(err);
+                alert("There was an error");
+                res.redirect('/create/'+id);
             }
             else{
                 res.redirect('/create/'+id);
