@@ -26,7 +26,7 @@ app.use(express.static(__dirname+"/public"));
 app.use(express.static(__dirname+"/uploads"))
 app.use(body_parser.urlencoded({extended:false}));
 app.set('view engine','ejs')
-
+app.set('views', path.join(__dirname,'views'))
 const blogSchema=new mongoose.Schema({
     id:String,
     title:String,
