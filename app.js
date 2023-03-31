@@ -12,7 +12,7 @@ mongoose.connect("mongodb+srv://admin-team8:Team8-1234@cluster0.wg0pcti.mongodb.
 const upload=multer({
     storage:multer.diskStorage({
     destination: function (req, file, cb) {
-      cb(null, './uploads')
+      cb(null,path.join(__dirname,'./uploads/'))
     },
     filename: function (req, file, cb) {
     cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
