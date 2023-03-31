@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+</head>
+<body>
+    <center>
+        <table border="2">
+            <tr>
+                <th>Product Name</th>
+                <th>Image</th>
+                <th>Product Link</th>
+                <th>Product Price</th>
+            </tr>
+                <% item.forEach (function (product){ %>
+                <tr>
+                <td><%= product.name %></td>
+                <td><img src="<%= product.image %>" width="200px" height="200px"></td>
+                <td><%= product.link %></td>
+                <td><%= product.price %></td>
+                </tr>
+                <% })%>
+        </table>
+    </center>
+</body>
+</html>

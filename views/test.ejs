@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+</head>
+<body>
+    <center>
+        <table border="2">
+            <tr>
+                <th>Title</th>
+                <th>Image</th>
+                <th>Content</th>
+            </tr>
+                <% item.forEach (function (blog){ %>
+                <tr>
+                <td><%= blog.title %></td>
+                <td><img src="<%= blog.image %>" width="100px" height="100px"></td>
+                <td><%= blog.content %></td>
+                </tr>
+                <% })%>
+        </table>
+    </center>
+</body>
+</html>

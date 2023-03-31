@@ -1,0 +1,70 @@
+
+      <!-- Footer -->
+      <div class="container">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+          <div class="col-md-4 d-flex align-items-center">
+            <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+              <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
+            </a>
+            <span class="mb-3 mb-md-0 text-muted">© 2023 Team8 Project</span>
+          </div>
+      
+          <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+            <li class="ms-3"><a class="text-muted" href="#"><img height="24" width="24" src="\icons\twitter.png"></a></li>
+            <li class="ms-3"><a class="text-muted" href="#"><img height="24" width="24" src="\icons\linkedin.png"></a></li>
+            <li class="ms-3"><a class="text-muted" href="#"><img height="24" width="24" src="\icons\facebook.png"></a></li>
+          </ul>
+          
+        </footer>
+      </div>
+     
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script>
+      function toggleDiv(divid)
+      {
+        let name=divid;
+    if(name==='profileSection'){
+    document.getElementById('profileSection').style.display='block';
+    document.getElementById('editSection').style.display='none';
+    document.getElementById('edit').classList.remove('active');
+    document.getElementById('profile').classList.add('active');
+   }else if(name==='editSection'){
+    document.getElementById('profileSection').style.display='none';
+    document.getElementById('editSection').style.display='block';
+    document.getElementById('profile').classList.remove('active');
+    document.getElementById('edit').classList.add('active');
+   }
+   else{
+    document.getElementById('profileSection').style.display='block';
+    document.getElementById('editSection').style.display='none';
+    document.getElementById('edit').classList.remove('active');
+    document.getElementById('profile').classList.add('active');
+   }
+    } 
+
+    function calling(link){
+        let name =link;
+        if (name==='dashboard'){
+          document.getElementById('dashboard').style.display='block';
+          // document.getElementById('sublist').style.display='none';
+          document.getElementById('product').style.display='none';
+        }
+        // else if(name==='sublist'){
+        //   document.getElementById('dashboard').style.display='none';
+        //   document.getElementById('sublist').style.display='block';
+        //   document.getElementById('product').style.display='none';
+        // }
+        else if(name==='product'){
+          document.getElementById('dashboard').style.display='none';
+          // document.getElementById('sublist').style.display='none';
+          document.getElementById('product').style.display='block';
+        }
+        else{
+          document.getElementById('dashboard').style.display='block';
+          // document.getElementById('sublist').style.display='none';
+          document.getElementById('product').style.display='none';
+        }
+      }
+    </script>
+</body>
+</html>

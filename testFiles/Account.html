@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Account</title>
+</head>
+<body style="margin: 10px 60px;">
+    <!-- Header -->
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+          <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+          <span class="fs-4">Blogging Platform</span>
+        </a>
+  
+        <ul class="nav nav-pills">
+          <li class="nav-item"><a href="/" class="nav-link" aria-current="page">Blog</a></li>
+          <li class="nav-item"><a href="/blog" class="nav-link">Your Blog</a></li>
+          <li class="nav-item"><a href="/create" class="nav-link">Create</a></li>
+          <li class="nav-item"><a href="/dashboard" class="nav-link">Dashboard</a></li>
+          <li class="nav-item"><a href="/account" class="nav-link active">My Account</a></li>
+          <li class="nav-item"><form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form></li>
+        </ul>
+
+    </header>
+
+    
+    <!-- Main Section -->
+    <div class="container">
+      <div class="row">
+              <div class="col-lg-4">
+                 <div class="profile-card-4 z-depth-3">
+                  <div class="card">
+                    <div class="card-body text-center bg-primary rounded-top">
+                     <div class="user-box">
+                      <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="user avatar">
+                    </div>
+                    <h5 class="mb-1 text-white">Jhon Doe</h5>
+                   </div>
+                    <div class="card-body">
+                      <ul class="list-group shadow-none">
+                      <li class="list-group-item">
+                        <div class="list-icon">
+                          <i class="fa fa-phone-square"></i>
+                        </div>
+                        <div class="list-details">
+                          <span>9910XXXXXX</span>
+                          <small>Mobile Number</small>
+                        </div>
+                      </li>
+                      <li class="list-group-item">
+                        <div class="list-icon">
+                          <i class="fa fa-envelope"></i>
+                        </div>
+                        <div class="list-details">
+                          <span>info@example.com</span>
+                          <small>Email Address</small>
+                        </div>
+                      </li>
+                      <!-- <li class="list-group-item">
+                        <div class="list-icon">
+                          <i class="fa fa-globe"></i>
+                        </div>
+                        <div class="list-details">
+                          <span>www.example.com</span>
+                          <small>Website Address</small>
+                        </div>
+                      </li> -->
+                      </ul>
+                      <div class="row text-center mt-4">
+                        <div class="col p-2">
+                         <h4 class="mb-1 line-height-5">154</h4>
+                          <small class="mb-0 font-weight-bold">Blogs</small>
+                         </div>
+                          <div class="col p-2">
+                            <h4 class="mb-1 line-height-5">2.2k</h4>
+                           <small class="mb-0 font-weight-bold">Followers</small>
+                          </div>
+                          <div class="col p-2">
+                           <h4 class="mb-1 line-height-5">9.1k</h4>
+                           <small class="mb-0 font-weight-bold">Views</small>
+                          </div>
+                       </div>
+                     </div>
+                   </div>
+                 </div>
+              </div>
+              <div class="col-lg-8">
+                 <div class="card z-depth-3">
+                  <div class="card-body">
+                  <ul class="nav nav-pills nav-pills-primary nav-justified" style="margin-bottom: 16px;">
+                      <li class="nav-item">
+                          <a href="#" id="profile" onclick="toggleDiv('profileSection');" data-toggle="pill" class="nav-link active show"><i class="icon-user"></i> <span class="hidden-xs">Profile</span></a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="#" id="edit" onclick="toggleDiv('editSection');" data-toggle="pill" class="nav-link show"><i class="icon-user"></i> <span class="hidden-xs">Edit</span></a>
+                    </li>
+                  </ul>
+        
+                      <div class="tab-pane active" id="profileSection" style="display: block;">
+                          <h5 class="mb-3">Name of user</h5>
+                          <div class="row">
+                              <div class="col-md-6">
+                                  <h6>Profession</h6>
+                                  <p>
+                                      Web Designer, UI/UX Engineer
+                                  </p>
+                                  <h6>Website</h6>
+                                  <p>
+                                     sample.com
+                                  </p>
+                                  <h6>Email</h6>
+                                  <p>
+                                     mailinfo@example.com
+                                  </p>
+                              </div>
+                          </div>
+                      </div>
+
+                      <div class="tab-pane" id="editSection" style="display: none;">
+                          <form>
+                              <div class="form-group row">
+                                  <label class="col-lg-3 col-form-label form-control-label">First name</label>
+                                  <div class="col-lg-9">
+                                      <input class="form-control" type="text" value="Mark">
+                                  </div>
+                              </div>
+                              <div class="form-group row">
+                                  <label class="col-lg-3 col-form-label form-control-label">Last name</label>
+                                  <div class="col-lg-9">
+                                      <input class="form-control" type="text" value="Jhonsan">
+                                  </div>
+                              </div>
+                              <div class="form-group row">
+                                  <label class="col-lg-3 col-form-label form-control-label">Email</label>
+                                  <div class="col-lg-9">
+                                      <input class="form-control" type="email" value="mark@example.com">
+                                  </div>
+                              </div>
+                              <div class="form-group row">
+                                  <label class="col-lg-3 col-form-label form-control-label">Profession</label>
+                                  <div class="col-lg-9">
+                                      <input class="form-control" type="text">
+                                  </div>
+                              </div>
+                              <div class="form-group row">
+                                  <label class="col-lg-3 col-form-label form-control-label">Website</label>
+                                  <div class="col-lg-9">
+                                      <input class="form-control" type="url" value="">
+                                  </div>
+                              </div>   
+                              <div class="form-group row">
+                                  <label class="col-lg-3 col-form-label form-control-label">Username</label>
+                                  <div class="col-lg-9">
+                                      <input class="form-control" type="text" value="jhonsanmark">
+                                  </div>
+                              </div>
+                              <div class="form-group row">
+                                  <label class="col-lg-3 col-form-label form-control-label">Password</label>
+                                  <div class="col-lg-9">
+                                      <input class="form-control" type="password" value="11111122333">
+                                  </div>
+                              </div>
+                              <div class="form-group row">
+                                  <label class="col-lg-3 col-form-label form-control-label">Confirm password</label>
+                                  <div class="col-lg-9">
+                                      <input class="form-control" type="password" value="11111122333">
+                                  </div>
+                              </div>
+                              <div class="form-group row">
+                                  <label class="col-lg-3 col-form-label form-control-label"></label>
+                                  <div class="col-lg-9">
+                                      <input type="reset" class="btn btn-secondary" value="Cancel">
+                                      <input type="button" class="btn btn-primary" value="Save Changes">
+                                  </div>
+                              </div>
+                          </form>
+                      </div>
+              </div>
+            </div>
+          </div>
+           
+              
+          </div>
+      </div>
+
+
+
+<!-- Footer -->
+<div class="container">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+      <div class="col-md-4 d-flex align-items-center">
+        <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+          <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
+        </a>
+        <span class="mb-3 mb-md-0 text-muted">© 2022 Company, Inc</span>
+      </div>
+  
+      <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+        <li class="ms-3"><a class="text-muted" href="#"><img height="24" width="24" src="\icons\twitter.png"></a></li>
+        <li class="ms-3"><a class="text-muted" href="#"><img height="24" width="24" src="\icons\linkedin.png"></a></li>
+        <li class="ms-3"><a class="text-muted" href="#"><img height="24" width="24" src="\icons\facebook.png"></a></li>
+      </ul>
+      
+    </footer>
+  </div>
+ 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script>
+  function toggleDiv(divid)
+  {
+   let name=divid;
+   if(name==='profileSection'){
+    document.getElementById('profileSection').style.display='block';
+    document.getElementById('editSection').style.display='none';
+    document.getElementById('edit').classList.remove('active');
+    document.getElementById('profile').classList.add('active');
+   }else if(name==='editSection'){
+    document.getElementById('profileSection').style.display='none';
+    document.getElementById('editSection').style.display='block';
+    document.getElementById('profile').classList.remove('active');
+    document.getElementById('edit').classList.add('active');
+   }
+   else{
+    document.getElementById('profileSection').style.display='block';
+    document.getElementById('editSection').style.display='none';
+    document.getElementById('edit').classList.remove('active');
+    document.getElementById('profile').classList.add('active');
+   }
+} 
+</script>
+</body>
+</html>

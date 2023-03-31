@@ -1,0 +1,24 @@
+.box{
+    height: 400px;
+    width: 1200px;
+    margin-left: 200px;
+}
+
+.currentPage{
+    color: rgb(6, 98, 202);
+}
+
+.cutoff-line{
+    --max-line:6;
+    --line-height:1.4;
+    max-height: calc(var(--max-line)* 1em * var(--line-height));
+    line-height: var(--line-height);
+    overflow: hidden;
+}
+.cutoff-line-main{
+    --max-line:6;
+    --line-height:1.5;
+    max-height: calc(var(--max-line)* 1em * var(--line-height));
+    line-height: var(--line-height);
+    overflow: hidden;
+}
