@@ -18,7 +18,8 @@ cloudinary.config({
 
 const app=express();
 app.use(fileupload({
-    useTempFiles:true
+    useTempFiles:true,
+    tempFileDir: path.join(__dirname, "tmp"),
 }))
 app.use(express.static(__dirname+"/public"));
 app.use(express.static(__dirname+"/uploads"));
