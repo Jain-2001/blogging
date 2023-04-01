@@ -27,7 +27,7 @@
       <p class="h1 border-bottom">Content</p>
       
       <div class="border-bottom">
-        <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark" style="background-image:url('/<%= bdata.image %>');background-size:100% 100%;height: 500px;"></div>
+        <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark" style="background-image:url('<%= bdata.image %>');background-size:100% 100%;height: 500px;"></div>
         <h1><%= bdata.title %></h1>
         <p><%= bdata.content %></p>
       </div>
@@ -43,7 +43,7 @@
            
             <div class="col">
               <div class="card" style="width: 16rem;">
-                  <img src="/<%= item.image %>" class="card-img-top" alt="...">
+                  <img src="<%= item.image %>" class="card-img-top" alt="...">
                   <div class="card-body">
                     <h5 class="card-title"><%= item.name %></h5>
                     <p class="card-text">Price: $<%= item.price %></p>

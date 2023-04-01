@@ -3,25 +3,23 @@ const body_parser= require('body-parser');
 const path=require('path')
 const ejs=require('ejs');
 const md5=require('md5');
-const multer=require('multer');
+const fileupload=require('express-fileupload');
+const cloudinary = require('cloudinary').v2;
 const alert=require('alert')
 const mongoose = require("mongoose");
 const { read } = require('fs');
 mongoose.set('strictQuery', true);
 mongoose.connect("mongodb+srv://admin-team8:Team8-1234@cluster0.wg0pcti.mongodb.net/blogDB");
-const upload=multer({
-    storage:multer.diskStorage({
-    destination: function (req, file, cb) {
-      cb(null,path.join(__dirname,'./uploads/'))
-    },
-    filename: function (req, file, cb) {
-    cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
-    }
-})
-});
+cloudinary.config({
+    cloud_name: "dfad5k7de",
+    api_key: "577899853599774",
+    api_secret: "qSCvpo_07NzWoiCOjoNVv-b6Lf4"
+  });
 
 const app=express();
-
+app.use(fileupload({
+    useTempFiles:true
+}))
 app.use(express.static(__dirname+"/public"));
 app.use(express.static(__dirname+"/uploads"))
 app.use(body_parser.urlencoded({extended:false}));
@@ -320,32 +318,37 @@ app.post('/register',function(req,res){
         })
     })
 
-    app.post('/editor/edit/:userId/:blogId',upload.single('image'),function(req,res){
+    app.post('/editor/edit/:userId/:blogId',function(req,res){
         const title1=req.body.title;
         const content1 =req.body.content;
-        const image1 =req.file.filename;
+        const file =req.files.image;
         const id=req.body.custId;
         const bid=req.params.blogId;
-        const blog1={
-            id:id,
-            title:title1,
-            image:image1,
-            content:content1,
-            views:0,
-        }
-        Blog.findByIdAndUpdate({_id:bid},blog1,function(err){
+        cloudinary.uploader.upload(file.tempFilePath,(err,result)=>{
             if(err){
                 console.log("There was an error");
                 res.redirect('/create/'+id);
             }else{
-                res.redirect('/create/'+id);
+                const blog1={
+                    id:id,
+                    title:title1,
+                    image:result.url,
+                    content:content1,
+                    views:0,
+                }
+                Blog.findByIdAndUpdate({_id:bid},blog1,function(err){
+                    if(err){
+                        console.log("There was an error");
+                        res.redirect('/create/'+id);
+                    }else{
+                        res.redirect('/create/'+id);
+                    }
+                })
             }
+       
         })
+      
     })
-
-
-
-
 
 
     app.get('/editor/delete/:userId/:blogId',function(req,res){
@@ -362,54 +365,69 @@ app.post('/register',function(req,res){
         })
     })
     
-    app.post('/editor/:userId',upload.single('image'),function(req,res){
+    app.post('/editor/:userId',function(req,res){
         const title1=req.body.title;
         const content1 =req.body.content;
-        const image1 =req.file.filename;
+        const file =req.files.image;
         const id=req.body.custId;
-        const blog1=new Blog({
-            id:id,
-            title:title1,
-            image:image1,
-            content:content1,
-            views:0,
-        })
-        blog1.save(function(err){
+        cloudinary.uploader.upload(file.tempFilePath,(err,result)=>{
             if(err){
                 console.log("There was an error");
-                res.redirect('/create/'+id);
             }else{
-                console.log("Data is Saved")
-                res.redirect('/test/'+id)
+                const blog1=new Blog({
+                    id:id,
+                    title:title1,
+                    image:result.url,
+                    content:content1,
+                    views:0,
+                })
+                blog1.save(function(err){
+                    if(err){
+                        console.log("There was an error");
+                        res.redirect('/create/'+id);
+                    }else{
+                        console.log("Data is Saved")
+                        res.redirect('/test/'+id)
+                    }
+                })
             }
         })
+        
     })
     
     app.get('/products/:userId',function(req,res){
         res.render('products',{id:req.params.userId});
     })
     
-    app.post('/products/:userId',upload.single('image'),function(req,res){
+    app.post('/products/:userId',function(req,res){
         const product_name=req.body.name;
         const product_link=req.body.link;
         const product_price=req.body.price;
-        const product_image=req.file.filename;
+        const file=req.files.image;
         const product_id=req.body.custId;
-        const product1=new Product({
-            id:product_id,
-            name:product_name,
-            image:product_image,
-            link:product_link,
-            price:product_price
-        });
-        product1.save(function(err){
+        cloudinary.uploader.upload(file.tempFilePath,(err,result)=>{
             if(err){
-                alert("There was an error");
+                console.log("There was an error");
                 res.redirect('/create/'+id);
             }else{
-                res.redirect('/test2/'+product_id);
+                const product1=new Product({
+                    id:product_id,
+                    name:product_name,
+                    image:result.url,
+                    link:product_link,
+                    price:product_price
+                });
+                product1.save(function(err){
+                    if(err){
+                        alert("There was an error");
+                        res.redirect('/create/'+id);
+                    }else{
+                        res.redirect('/test2/'+product_id);
+                    }
+                })
             }
-        });   
+        })
+  
     })
     app.get('/product/delete/:userId/:productId',function(req,res){
         const id=req.params.userId;
