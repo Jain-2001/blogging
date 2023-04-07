@@ -46,69 +46,89 @@
   <h1 style="margin-left: 80px;">Some Blogs</h1>
 
   <!-- Section One -->
-  <div class="container px-4" style="margin-top: 30px;">
-    <div class="row gx-5">
-      <div class="col">
-        <div class="card" style="width: 18rem;">
-          <img src="images/b2p-header-craft-blog-book.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Paper Crafts</h5>
-            <p class="card-text">Although we love reading and know that books are for treasuring, there are also some amazing things you can create with those vintage tomes to be found in every thrift store across the land. Here’s some of our favourite ideas.</p>
+  <% if(data.length===0){ %>
+    <div class="container px-4" style="margin-top: 30px;">
+      <div class="row gx-5">
+        <div class="col">
+          <div class="card" style="width: 18rem;">
+            <img src="images/b2p-header-craft-blog-book.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Paper Crafts</h5>
+              <p class="card-text">Although we love reading and know that books are for treasuring, there are also some amazing things you can create with those vintage tomes to be found in every thrift store across the land. Here’s some of our favourite ideas.</p>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col">
-        <div class="card" style="width: 18rem;">
-          <img src="images/blog-image01.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Shopping</h5>
-            <p class="card-text">Having those needs met allows you to reach goals and have unique experiences, which is in turn another kind of satisfaction. Everyone likes having new things every now and again. </p>
+        <div class="col">
+          <div class="card" style="width: 18rem;">
+            <img src="images/blog-image01.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Shopping</h5>
+              <p class="card-text">Having those needs met allows you to reach goals and have unique experiences, which is in turn another kind of satisfaction. Everyone likes having new things every now and again. </p>
+            </div>
           </div>
-        </div>
-      </div><div class="col">
-        <div class="card" style="width: 18rem;">
-          <img src="images/4682.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Vacation</h5>
-            <p class="card-text">“A vacation helps to relieve stress and boredom, gives us a change of scenery, provides us with adventure, and helps to bring us closer to the people in our lives</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Section 2 -->
-  <div class="container px-4" style="margin-top: 30px;">
-    <div class="row gx-5">
-      <div class="col">
-        <div class="card" style="width: 18rem;">
-          <img src="images/1.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Bliss On a Plate</h5>
-            <p class="card-text">Well hello there my foodie friends! Today we’re talking food blogging! If blogging isn’t your cup of tea and your just here for food and the recipes, I promise I have some more deliciousness in store for you  soon</p>
-          </div>
-        </div>
-      </div><div class="col">
-        <div class="card" style="width: 18rem;">
-          <img src="images/download.jfif" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Creating memories </h5>
-            <p class="card-text">"If you can see it, you can shoot it" Beautiful photography has the right timing, the perfect color and many are bursting with creativity</p>
-          </div>
-        </div>
-      </div><div class="col">
-        <div class="card" style="width: 18rem;">
-          <img src="images/film.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Show Time</h5>
-            <p class="card-text">While you watch a film, do you thoughts change throughout? If you hate it at the start but grow to love it, or your opinion changes about a particular character, it could be entertaining to log your thought process</p>
+        </div><div class="col">
+          <div class="card" style="width: 18rem;">
+            <img src="images/4682.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Vacation</h5>
+              <p class="card-text">“A vacation helps to relieve stress and boredom, gives us a change of scenery, provides us with adventure, and helps to bring us closer to the people in our lives</p>
+            </div>
           </div>
         </div>
       </div>
     </div>
+  
+    <!-- Section 2 -->
+    <div class="container px-4" style="margin-top: 30px;">
+      <div class="row gx-5">
+        <div class="col">
+          <div class="card" style="width: 18rem;">
+            <img src="images/1.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Bliss On a Plate</h5>
+              <p class="card-text">Well hello there my foodie friends! Today we’re talking food blogging! If blogging isn’t your cup of tea and your just here for food and the recipes, I promise I have some more deliciousness in store for you  soon</p>
+            </div>
+          </div>
+        </div><div class="col">
+          <div class="card" style="width: 18rem;">
+            <img src="images/download.jfif" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Creating memories </h5>
+              <p class="card-text">"If you can see it, you can shoot it" Beautiful photography has the right timing, the perfect color and many are bursting with creativity</p>
+            </div>
+          </div>
+        </div><div class="col">
+          <div class="card" style="width: 18rem;">
+            <img src="images/film.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Show Time</h5>
+              <p class="card-text">While you watch a film, do you thoughts change throughout? If you hate it at the start but grow to love it, or your opinion changes about a particular character, it could be entertaining to log your thought process</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+ 
+  <% } else{ %>
+    <div class="container px-4" style="margin-top: 30px;">
+      <div class="row gx-5">
+    <% data.forEach(function(item){%>
+     
+          <div class="col">
+            <div class="card" style="width: 18rem;">
+              <img src="<%= item.image %>" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title"><%= item.title %></h5>
+                <p class="card-text cutoff-line"><%= item.content %></p>
+              </div>
+            </div>
+          </div>
+        
+    <% }) %>
   </div>
-</section>
-      
+</div>
+  <% } %>
+</section>   
       <!-- Features -->
     <section id="features">
       <div class="container px-4 py-5" id="featured-3">

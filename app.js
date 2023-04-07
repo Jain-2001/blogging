@@ -61,7 +61,17 @@ const userSchema= new mongoose.Schema({
 const User=mongoose.model('User',userSchema)
 
 app.get('/',function(req,res){
-    res.render('landing');
+    Blog.find({}).sort({"views":-1}).limit(6).exec(function(err,doc){
+        if(err){
+            console.log("There was an error");
+    
+        }
+        else{
+            res.render('landing',{data:doc}); 
+        }
+        
+    })
+    
 })
 
 
