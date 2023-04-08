@@ -56,6 +56,7 @@ const userSchema= new mongoose.Schema({
         profession:String,
         fname:String,
         lname:String,
+        image:String,
 })
 
 const User=mongoose.model('User',userSchema)
@@ -244,22 +245,31 @@ app.post('/register',function(req,res){
 
     app.post('/account/:userId',function(req,res){
         const id=req.params.userId;
-        const uvalue={
-            fname:req.body.fname,
-            lname:req.body.lname,
-            email:req.body.mail,
-            profession:req.body.profession,
-            website:req.body.website  
-        }
-        
-        User.findByIdAndUpdate({_id:id},uvalue,function(err){
+        const file=req.files.image;
+        cloudinary.uploader.upload(file.tempFilePath,(err,result)=>{
             if(err){
-                console.log(err);
+                console.log("There was an error");
+                res.redirect('/account/'+id);
             }else{
-                res.redirect('/account/'+id)
-            }
-        })
+                const uvalue={
+                    fname:req.body.fname,
+                    lname:req.body.lname,
+                    email:req.body.mail,
+                    profession:req.body.profession,
+                    website:req.body.website,
+                    image:result.url,
+                }
+        
+            User.findByIdAndUpdate({_id:id},uvalue,function(err){
+                if(err){
+                    console.log("There was an error");
+                }else{
+                    res.redirect('/account/'+id)
+                }
+            })
+    }
     })
+})
     
     app.get('/create/:userId',function(req,res){
         const id=req.params.userId;
@@ -282,7 +292,7 @@ app.post('/register',function(req,res){
     
     app.get('/dashboard/:userId',function(req,res){
         const id=req.params.userId;
-        User.exists({_id:id},function(err){
+        User.findById({_id:id},function(err,doc){
             if(err){
                 res.redirect('/register');
             }else{
@@ -300,7 +310,7 @@ app.post('/register',function(req,res){
                                 blogs.forEach(function(view) {
                                     views=views+view.views;
                                 });
-                                res.render('dashboard',{id:id,productdata:pdocs,plen:plength,blen:blength,view:views});
+                                res.render('dashboard',{id:id,productdata:pdocs,plen:plength,blen:blength,view:views,udata:doc});
                             }
                         })
                         

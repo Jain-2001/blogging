@@ -29,9 +29,14 @@
               <div class="col-lg-4">
                  <div class="profile-card-4 z-depth-3">
                   <div class="card">
-                    <div class="card-body text-center bg-primary rounded-top">
+                    <div class="card-body text-center rounded-top">
                      <div class="user-box">
-                      <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="user avatar">
+                     <% if(udata.image===' '){ %>
+                      <img src="https://bootdey.com/img/Content/avatar/avatar7.png" class="card-img-top" alt="user avatar">
+                     <% } else { %>
+                      <img src="<%= udata.image %>" class="card-img-top" style="height: 400px;width: 350px;" alt="user avatar">
+                     <% } %>
+                      
                     </div>
                    </div>
                     <div class="card-body">
@@ -99,7 +104,7 @@
                       </div>
 
                       <div class="tab-pane" id="editSection" style="display: none;">
-                          <form action="/account/<%=id%>" method="post">
+                          <form action="/account/<%=id%>" method="post" enctype="multipart/form-data">
                               <div class="form-group row">
                                   <label class="col-lg-3 col-form-label form-control-label">First name</label>
                                   <div class="col-lg-9">
@@ -131,6 +136,12 @@
                                   </div>
                               </div>   
                               <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Upload Image</label>
+                                  <div class="col-lg-9">
+                                    <input type="file" name="image" class="form-control" id="inputGroupFile01">
+                                  </div>  
+                            </div>
+                              <div class="form-group row" style="margin-top: 10px;">
                                   <label class="col-lg-3 col-form-label form-control-label"></label>
                                   <div class="col-lg-9">
                                       <input type="reset" class="btn btn-secondary" value="Cancel">
