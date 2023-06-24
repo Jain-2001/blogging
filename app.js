@@ -9,11 +9,11 @@ const alert=require('alert')
 const mongoose = require("mongoose");
 const { read } = require('fs');
 mongoose.set('strictQuery', true);
-mongoose.connect("mongodb+srv://admin-team8:Team8-1234@cluster0.wg0pcti.mongodb.net/blogDB");
+mongoose.connect("mongoose url");
 cloudinary.config({
-    cloud_name: "dfad5k7de",
-    api_key: "577899853599774",
-    api_secret: "qSCvpo_07NzWoiCOjoNVv-b6Lf4"
+    cloud_name: "cloud name",
+    api_key: "your api key",
+    api_secret: "your api secret key"
   });
 
 const app=express();
